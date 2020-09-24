@@ -70,7 +70,7 @@ if($delete = mysqli_query($db, 'DELETE FROM contatos WHERE id=1')){
 
 echo "<br><br> Nome Enviado {$_POST['nm']}, Whatsapp {$_POST['whats']}";
 
-echo "<br><br>";
+// Você tem que fazer com que quando seja clicado em enviar os dados vão ao banco de dados;
 
 
 
