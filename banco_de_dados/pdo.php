@@ -19,24 +19,26 @@ $objBanco = new PDO(DSN, DB_USER, DB_PASS);
 //abaixo: a var $consulta recebe o objeto objBanco instanciado a partir da classe PDO que tem suas configurações no arquivo config.php, esse objeto usa a função query() para dar um comando e no modo opicional desta funcao na conexao por PDO pode-se usar PDO::FETCH ASSOC, aonde FETCH_ASSOC é u atributo estático que diz que vc pode chamar os dados com índice alfanumerico(ou seja, pelos nomes das tabelas que são o que vão nos vetores e consultas no código)
 $consulta = $objBanco->query('SELECT id, nome, whatsapp FROM contatos', PDO ::FETCH_ASSOC);
 // var_dump($consulta); sempre use para saber com o que está mexendo;
-// $update = $objBanco->query("UPDATE contatos SET nome = 'Gabriel' WHERE id = 13");
-// $insert = $objBanco->query("INSERT INTO contatos (nome, whatsapp) VALUES ('Fulano', 5511989876545)");
-// $delete = $objBanco->query('DELETE FROM contatos IF EXISTS WHERE id=22');
+$update = $objBanco->query("UPDATE contatos SET nome = 'Gabriel' WHERE id = null");
+$insert = $objBanco->query("INSERT INTO contatos (nome, whatsapp) VALUES ('Fulano', 5511989876545)");
+$delete = $objBanco->query('DELETE FROM contatos IF EXISTS WHERE id=null');
 
-$insertDoForm = $objBanco->query("INSERT INTO contatos (nome, whatsapp) VALUES ({$_POST['nm']}, {$_POST['whats']})");// PRECISA VER A AULA E TERMINAR ELA
+$insertDoForm = $objBanco->query("INSERT INTO contatos (nome, whatsapp) VALUES ('{$_POST['nome']}', '{$_POST['whatsapp']} ') ");
 
-if($delete){
-    echo 'Foi deletado um registro na tabela contatos!<br>';
-}else{
-    echo 'Não foi possível deletar o registro<br><br>';
-}
-if($insertDoForm){// PRECISA VER A AULA E TERMINAR ELA
+if($insertDoForm){
     echo 'Um registro foi inserido do formulario em contatos!<br>';
 }
 if($update){
-    echo 'Um registro foi inserido em contatos!<br>';
+    echo 'Um registro foi alterado em contatos!<br>';
+}
+if($delete){
+    echo 'Um registro foi deletado em contatos!<br>';
+}else{
+    echo 'Não foi possível deletar o registro<br><br>';
 }
 
 foreach( $consulta as $registro){
     echo "ID: {$registro['id']} NOME: {$registro['nome']} WHATSAPP: {$registro['whatsapp']} <br>";
 }
+
+// echo "<br><br>Nome Enviado: {$_POST['nome']}, Whatsapp: {$_POST['whatsapp']}";
