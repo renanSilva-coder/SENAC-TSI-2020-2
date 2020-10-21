@@ -1,4 +1,3 @@
-<!DOCTYPE html> <br>
 <html lang="pt-br">
 
 <head>
@@ -11,18 +10,11 @@
 </head>
 
 <body>
-    <div class="text-center">
-        <h1>Cadastre seu contato!</h1>
-        <br><br>
-        <form method="post" action="grava_contato.php">
-            <label>Nome: </label>
-            <input type="text" name="nm">
-            <label>Whatsapp: </label>
-            <input type="text" name="whats">
-            <br><br>
-            <input type="submit" value="Enviar">
-        </form>
-    </div>
+<div class="text-center">
+    <h1><?php echo $msg; ?></h1>
+    <br><br>
+    <a href="index.html">Voltar para o formulário</a>
+</div>
 </body>
 
 </html>
