@@ -13,7 +13,7 @@
 <body>
 <div class="text-center">
     <br><br>
-    <a href="./">+Novo Contato</a>
+    <a href="./contato.html">+Novo Contato</a>
     <div class="container">    
         <p>Abaixo está a lista de registros</p>        
     <table class="table">
