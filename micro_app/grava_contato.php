@@ -15,13 +15,13 @@ $objStmt->bindParam(':zap', $_POST['whats']);
 
 //3) Executo a consulta
 if( $objStmt->execute() ){
-    $msg = 'OBRIGADO POR SE CADASTRAR!';
+    $msg = 'Contato gravado com sucesso!';
 }else{
     $msg = '  :-(  DEU ERRO TENTE NOVAMENTE!';
 }
 
 //4) Chama o template (front-end)
-include 'grava_contato_tpl.php';
+//include 'grava_contato_tpl.php';
 
 
 //OUTRA FORMA DE PREPARAR A CONSULTA COM ? no lugar de :label
@@ -34,4 +34,4 @@ $objStmt = $objBanco->prepare(' INSERT INTO contatos
 $objStmt->execute(array ($_POST['nm'], $_POST['whats']));
 */
 
-
+include 'grava_contato_tpl.php';
