@@ -1,8 +1,7 @@
-<!DOCTYPE html> <br>
 <html lang="pt-br">
 
 <head>
-    <title>Micro_App Edição</title>
+    <title>Micro_App Deleção</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -12,26 +11,11 @@
 </head>
 
 <body>
-    <div class="text-center">
-        <h1>Edite seu contato!</h1>
-        <br><br>
-        <?php
-            if(isset($msg)) echo $msg;
-        ?>
-        <form method="post" action="edita_contato.php">
-            <label>Nome: </label>
-            <input type="text" name="nm" value="<?php echo $contato['nome']?>">
-            <label>Whatsapp: </label>
-            <input type="text" name="whats" value="<?php echo $contato['whatsapp']?>">
-            <input type="hidden" name="id" value="<?php echo $contato['id']?>">
-            <br><br>
-            <input type="submit" value="Editar">
-            <br><br>          
-            <input class="btn btn-primary" type="button" value="Voltar" onClick="history.go(-1)">
+<div class="text-center">
+    <h1><?php echo $msg; ?></h1>
+    <br><br>
+    <a href="lista_contato.php">Voltar para página anterior</a>
 
-
-        </form>
-    </div>
+</div>
 </body>
-
 </html>

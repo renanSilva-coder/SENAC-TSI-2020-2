@@ -17,7 +17,7 @@
     <div class="container">    
         <p>Abaixo está a lista de registros</p>        
     <table class="table">
-        <thead>
+        <thead class="text-bolder">
         <tr>
             <th>ID</th>
             <th>Nome</th>
@@ -54,8 +54,6 @@
     
     </table>
     </div>
-    <br><br>          
-    <input class="btn btn-primary" type="button" value="Voltar" onClick="history.go(-1)">
 </div>
 </body>
 
