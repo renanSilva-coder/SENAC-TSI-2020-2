@@ -23,7 +23,11 @@ $contato = ['nome' => 'Luiz Bono', 'whatsapp' => '5511982789982'];
 
 ///////////////////////
 //INSERE DADOS NO BANCO
+<<<<<<< HEAD
 if(mysqli_query($db, //ASPAS DUPLAS PQ TEM VARIAVEL NO COMANDO;
+=======
+/*if(mysqli_query($db, //ASPAS DUPLAS PQ TEM VARIAVEL NO COMANDO;
+>>>>>>> abfb28bcd6ae3ed45cd01c203d216a9ac0c72a4b
                     "
                     INSERT INTO  contatos 
                         (nome,whatsapp)
@@ -35,7 +39,11 @@ if(mysqli_query($db, //ASPAS DUPLAS PQ TEM VARIAVEL NO COMANDO;
     
     echo 'Não foi possível inserir o registro';
     echo mysqli_connect_error();
+<<<<<<< HEAD
 }
+=======
+}*/
+>>>>>>> abfb28bcd6ae3ed45cd01c203d216a9ac0c72a4b
 
 /////////////////////////////
 //LISTA O QUE ESTÁ NA TABELA
@@ -58,7 +66,11 @@ echo '</table>';
 //////////////////////////////////////
 //APAGA UM REGISTRO QUE ESTÁ NA TABELA
 
+<<<<<<< HEAD
 if($delete = mysqli_query($db, 'DELETE FROM contatos WHERE id=22')){
+=======
+if($delete = mysqli_query($db, 'DELETE FROM contatos WHERE id=1')){
+>>>>>>> abfb28bcd6ae3ed45cd01c203d216a9ac0c72a4b
     echo 'Foi deletado um registo na tabela contatos!<br>';
 }else{
     echo 'Não foi possível deletar o registro';
@@ -68,7 +80,11 @@ if($delete = mysqli_query($db, 'DELETE FROM contatos WHERE id=22')){
 
 //$POST $ GET $ REQUEST - Vetores super globais para receber dados do usuário;
 
+<<<<<<< HEAD
 echo "<br><br>Nome Enviado: {$_POST['nm']}, Whatsapp: {$_POST['whats']}";
+=======
+echo "<br><br> Nome Enviado {$_POST['nm']}, Whatsapp {$_POST['whats']}";
+>>>>>>> abfb28bcd6ae3ed45cd01c203d216a9ac0c72a4b
 
 // Você tem que fazer com que quando seja clicado em enviar os dados vão ao banco de dados;
 
