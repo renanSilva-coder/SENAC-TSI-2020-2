@@ -1,4 +1,12 @@
+<?php
+	session_start(); // Ele grava um cookie na maquina do usuario com id de sessao, sessino_start(); tem que ser enviado antes de qualquer bite mesmo um espaço antes de <php? 
+	// var_dump($_SESSION);//$_SESSION é um vetor super global para acessar esses dados da sessao.
+	// sessao é o tempo que o usuario usa seu site, e usamos a sessao para para controlar as atividades  de acesso nele. 
+	$_SESSION['meuNome'] = 'fulano'; // cria a string fulano e guarda em meuNome e em qualquer arquivo que eu colocar session_start(); isso vai está disponível pra mim puxar através de um echo  'Você é o: ' .$_SESSION['user']. '<br><br>'; por exemplo.
 
+
+	// echo 'Seu ID de sessão é: '. session_id();//gera um id de sessao
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +35,6 @@
 	<br><br>
 	<h2>Por que você nos deu essa nota?</h2><br>
 	<textarea name="explicacao" rows="5" cols="63"></textarea>
-	<input type="hidden" name="protocolo" value="<?php echo rand(0,10000); ?>">
 	<br>
 	<input type="submit" name="avaliacao" value="Avaliar">
 	</form>

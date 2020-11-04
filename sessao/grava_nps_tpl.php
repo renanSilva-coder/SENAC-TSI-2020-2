@@ -15,7 +15,7 @@
 	<h1><?php echo $msg; ?></h1>
 	<a href="nps_tpl.php">Avaliar Novamente?</a>
 	<br><br>
-	<?php echo '<a href="agradecimento.php?nota='.$nota.'&protocolo='.$protocolo.'">Seguir</a>';?>
+	<?php echo '<a href="agradecimento.php?nota='.$nota.'">Seguir</a>';?>
 	<!-- colocar ?nota= no link que eu criei adiciona esse mesmo texto na url.
 	Seguindo, ao puxar a variável $nota que vem de nps.php, não é preciso um include do arquivo agradecimento.php, pois é possível puxar $nota pois tem um include deste arquivo lá que compartilha essa variável. E assim  crio um link para em agradecimento.php que pega o valor de $nota. 
 	Agora em agradecimento.php está disponível a variável $nota através do método $_GET que é utilizado para passar valores pela url. 

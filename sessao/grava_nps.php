@@ -5,10 +5,11 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 	
 // var_dump($_POST);
+session_start();
+// echo 'Seu ID de sessão é: '. session_id();//gera um id de sessao e o php cuida de não repetir
 
 $nota = $_POST['nota'];
 $explicacao = $_POST['explicacao'];
-$protocolo = $_POST['protocolo'];
 
 // echo " <br><br> Você deu a nota $nota pelo motivo \"$explicacao\" ";
 
@@ -30,20 +31,6 @@ if( $objStmt->execute() ){
 }else{
     $msg = '  :-(  DEU ERRO TENTE NOVAMENTE!';
 }
-
-//4) Chama o template (front-end)
-//include 'grava_contato_tpl.php';
-
-
-//OUTRA FORMA DE PREPARAR A CONSULTA COM ? no lugar de :label
-//Quando passo array a ordem dos elementos importa!
-/*
-$objStmt = $objBanco->prepare(' INSERT INTO contatos
-                                    (nome,whatsapp) 
-                                VALUES 
-                                    ( ?, ?)');
-$objStmt->execute(array ($_POST['nm'], $_POST['whats']));
-*/
 
 include 'grava_nps_tpl.php';
 
