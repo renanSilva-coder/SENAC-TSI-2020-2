@@ -27,8 +27,10 @@
             <br><br>
             <input type="submit" value="Editar">
             <br><br>          
-            <input class="btn btn-primary" type="button" value="Voltar" onClick="history.go(-1)">
-
+            <label class="text-danger font-italic">(se você acabou de editar use o link)</label><br>
+            <input class="btn btn-primary" type="button" value="Voltar" onClick="history.go()">
+            <br><br>
+            <a href="lista_contato.php">Voltar para lista</a><br>
 
         </form>
     </div>
