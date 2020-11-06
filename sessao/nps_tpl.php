@@ -8,9 +8,10 @@
 		
 		header('Location: index.php');
 			
-	}else{
+	}
 	
-	echo  '<!DOCTYPE html>
+	?>
+	<!DOCTYPE html>
 		<html>
 		<head>
 			<title>sessao</title>
@@ -28,24 +29,24 @@
 			<h2>Qual a probabilidade de você recomendar nosso serviço para um amigo?</h2><br>
 			<form method="post" action="grava_nps.php">
 			<label class="text-danger">Nada provável</label>';
-			
+			<?php
 			for( $i = 1; $i <=10; $i++ ){
 				echo " <input type='radio' id='nps$i' name='nota' value='$i'>\n 
 				<label for='nps$i'>$i</label>\n";
 			}
-
-			echo "<label class='text-success'>Muito provável</label>
+			?>
+			<label class='text-success'>Muito provável</label>
 			<br><br>
 			<h2>Por que você nos deu essa nota?</h2><br>
 			<textarea name='explicacao' rows='5' cols='63'></textarea>
 			<br>
 			<input type='submit' name='avaliacao' value='Avaliar'><br>
 			<hr>
-			<input type='button' class='btn btn-outline-primary' onclick='location.href='sair.php'' name='menuNps' value='Menu'>
+			<a href='index.php'>
+			<input type='button' class='btn btn-outline-primary' name='menuNps' value='Menu'>
+			</a>
 			</form>
 		</body>
-		</html>	";
+		</html>
 }
 
-
-?>

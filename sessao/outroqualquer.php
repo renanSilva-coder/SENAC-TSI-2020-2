@@ -8,9 +8,8 @@ if ( !isset($_SESSION['login'])) {
 	
 	header('Location: index.php');
 
-}else{
-
-	echo  "Estamos em Outro Qualquer e você é o: ' .$_SESSION['login']. '<br><br>
-	<input class='btn btn-outline-primary' onclick='location.href='sair.php'' name='menuOutroQualquer' value='Menu'>";	
-	";	
 }
+	echo "Estamos em Outro Qualquer e você é o: " .$_SESSION['login']. "<br><br>
+	<a href='index.php'>
+	<input type='button' name='menuOutroQualquer' value='Menu'>
+	</a>";	

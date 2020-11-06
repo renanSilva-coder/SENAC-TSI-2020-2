@@ -8,13 +8,25 @@ echo  'Você é o: ' .$_SESSION['login']. '<br><br>';//mostra um dado( que está
 $nota = $_GET['nota'];// Pega quando está na url
 // $nota = $_REQUEST['nota']; // usa-se quando o valor pode vir por POST ou GET ou OS DOIS 
 
-if ( $nota >= 9 ){
-	echo "ESTAMOS MUITO FELIZES!!
-          <input class='btn btn-outline-primary' type='button' value='Voltar' onClick='history.go(-1)'>
-	";
+
+if ( !isset($_SESSION['login'])) {
+	
+	header('Location: index.php');
 
 }else{
-	echo "O que podemos fazer para você nos dar uma nota 10 ???
-          <input class='btn btn-outline-primary' type='button' value='Voltar' onClick='history.go(-1)'>
-	";
+
+if ( $nota >= 9 ){
+	echo "ESTAMOS MUITO FELIZES!!!";
+}else{
+	echo "O que podemos fazer para você nos dar uma nota 10 ???<br>";
 }
+    echo "<a href='index.php'>
+	<input type='button' name='menuUmOutroAinda' value='Menu'>
+	</a><br>
+	<a href='nps_tpl.php'>
+	<input type='button' name='agradecimentoVoltar' value='Avaliação'>
+	</a>";
+	
+}
+
+
