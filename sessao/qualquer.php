@@ -1,5 +1,15 @@
 <?php
 
-session_start(); 
+session_start();
+
+if ( !isset($_SESSION['login'])) {
 	
-echo  'Você é o: ' .$_SESSION['meuNome']. '<br><br>';
+	header('Location: index.php');
+
+}else{
+
+	echo  "Estamos em Qualquer e você é o: ' .$_SESSION['login']. '<br><br>
+	<input class='btn btn-outline-primary' onclick='location.href='sair.php'' name='menuQualquer' value='Menu'>";	
+}
+
+
