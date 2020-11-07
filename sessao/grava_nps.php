@@ -6,14 +6,16 @@ error_reporting(E_ALL);
 	
 // var_dump($_POST);
 session_start();
+require_once 'connect.php';
 // echo 'Seu ID de sessão é: '. session_id();//gera um id de sessao e o php cuida de não repetir
+include 'header_tpl.php';
+include 'index_menu_tpl.php';
 
 $nota = $_POST['nota'];
 $explicacao = $_POST['explicacao'];
 
 // echo " <br><br> Você deu a nota $nota pelo motivo \"$explicacao\" ";
 
-require_once 'connect.php';
 
 // Como evitar SQL injection 
 //1) preparo a consulta e faço ela de forma segura
@@ -32,7 +34,9 @@ if( $objStmt->execute() ){
     $msg = '  :-(  DEU ERRO TENTE NOVAMENTE!';
 }
 
+include 'footer_tpl.php';
 include 'grava_nps_tpl.php';
+
 
 //////////////////////////////////////////////
 /*

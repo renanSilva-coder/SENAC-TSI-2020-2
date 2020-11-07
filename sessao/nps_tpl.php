@@ -1,14 +1,12 @@
 <?php
-	session_start(); // Ele grava um cookie na maquina do usuario com id de sessao, sessino_start(); tem que ser enviado antes de qualquer bite mesmo um espaço antes de <php? 
+require 'sessao.php';
+
+	// session_start(); // Ele grava um cookie na maquina do usuario com id de sessao, sessino_start(); tem que ser enviado antes de qualquer bite mesmo um espaço antes de <php? 
 	// var_dump($_SESSION);//$_SESSION é um vetor super global para acessar esses dados da sessao.
 	// sessao é o tempo que o usuario usa seu site, e usamos a sessao para para controlar as atividades  de acesso nele. 
 	$_SESSION['meuNome'] = 'fulano'; // cria a string fulano e guarda em meuNome e em qualquer arquivo que eu colocar session_start(); isso vai está disponível pra mim puxar através de um echo  'Você é o: ' .$_SESSION['user']. '<br><br>'; por exemplo.
 	// echo 'Seu ID de sessão é: '. session_id();//gera um id de sessao
-	if ( !isset($_SESSION['login'])) {
-		
-		header('Location: index.php');
-			
-	}
+
 	
 	?>
 	<!DOCTYPE html>
@@ -25,10 +23,11 @@
 		    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		</head>
 		<body class="text-center">
+			<?php include 'index_menu_tpl.php'; ?>
 			<h1>Pesquisa de Satisfação</h1><br>
 			<h2>Qual a probabilidade de você recomendar nosso serviço para um amigo?</h2><br>
 			<form method="post" action="grava_nps.php">
-			<label class="text-danger">Nada provável</label>';
+			<label class="text-danger">Nada provável</label>
 			<?php
 			for( $i = 1; $i <=10; $i++ ){
 				echo " <input type='radio' id='nps$i' name='nota' value='$i'>\n 
@@ -40,13 +39,9 @@
 			<h2>Por que você nos deu essa nota?</h2><br>
 			<textarea name='explicacao' rows='5' cols='63'></textarea>
 			<br>
-			<input type='submit' name='avaliacao' value='Avaliar'><br>
-			<hr>
-			<a href='index.php'>
-			<input type='button' class='btn btn-outline-primary' name='menuNps' value='Menu'>
-			</a>
+			<input type='submit' name='avaliacao' value='Avaliar'><br><hr>
 			</form>
 		</body>
 		</html>
-}
+
 

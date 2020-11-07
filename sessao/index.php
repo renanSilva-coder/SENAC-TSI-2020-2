@@ -12,8 +12,10 @@ $credenciais = [	0 => ['user' => 'renan@senac.br',	'pass' => '123'],
 					2 => ['user' => 'nathy@senac.br', 	'pass' => '132']];
 
 if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
-	
-	include 'index_menu_tpl.php';
+
+		include 'header_tpl.php';
+		include 'index_menu_tpl.php';
+		include 'footer_tpl.php';
 
 } elseif ( isset($_POST['entrar']) ) { // Caso o usuario preencheu o form de login
 
@@ -24,7 +26,9 @@ if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
 
 		$_SESSION['login'] = $login;
 
+		include 'header_tpl.php';
 		include 'index_menu_tpl.php';
+		include 'footer_tpl.php';
 
 	}else{
 	$msg = 'Credenciais inválidas, tente novamente!';
