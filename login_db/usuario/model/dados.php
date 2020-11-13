@@ -2,7 +2,7 @@
 
 chdir( __DIR__ ); //Garante que o codigo seja executado no diretorio model
 
-require_once '../db.php';
+require_once '../../db.php';
 
 function listarTudo(): array
 {

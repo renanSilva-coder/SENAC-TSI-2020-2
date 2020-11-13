@@ -7,6 +7,8 @@
 	<a class="text-dark" href="/Github/SENAC-TSI-PHP-2020-2/login_db/outroqualquer.php"><input type='button' class='btn btn-outline-dark' name='mnOutroQualquer' value='Outro qualquer'></a>
 	
 	<a class="text-dark" href="/Github/SENAC-TSI-PHP-2020-2/login_db/novo/umoutroainda.php"><input type='button' class='btn btn-outline-dark' name='mnUmOutroAinda' value='Um outro ainda'></a>
+
+	<a class="text-dark" href="/Github/SENAC-TSI-PHP-2020-2/login_db/usuario"><input type='button' class='btn btn-outline-dark' name='Usuarios' value='Usuários'></a>
 	
 	<a class="text-dark" href="/Github/SENAC-TSI-PHP-2020-2/login_db/sair.php"><input type='button' class='btn btn-outline-danger' name='mnSair' value='Deslogar'></a>
 	<hr>
