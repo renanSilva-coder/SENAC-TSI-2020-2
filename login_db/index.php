@@ -2,20 +2,14 @@
 
 // ini_set('display_errors', 0);
 // ini_set('display_startup_errors',0);
-// // error_reporting(E_ALL);
+// error_reporting(E_ALL);
 
 session_start();
 // $sessaoUsuario = $_SESSION['sessaoDoUser'] = 'Usuário';
 require_once 'db.php';
+//Exemplo de como fazer o salt na senha, uma criptografia
+// $pass = password_hash('123', PASSWORD_DEFAULT);
 
-if($db->query("INSERT INTO usuario 
-			(nome, email, senha) 
-				VALUES 
-				('Renan Augusto','renan@senac.sp',123)")){
-	echo 'Contato Inserido com sucesso <br><br>';
-}else{
-	echo 'Falha na inserção <br><br>';
-}
 
 if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
 
@@ -28,7 +22,14 @@ if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
 	$login = $_POST['login'];
 	$senha = $_POST['senha'];
 
-	if ( in_array ( ['user' => $login, 'pass'=> $senha], $credenciais)){
+	//Verificar se existe o usuário e pegar o hash da senha
+	$r = $db->query("SELECT senha from usuario WHERE email = '$login'");//se o login bater com o que foi digitado pelo usuario ele pega a senha para fazer a comparação, guarda essa consulta em $r
+	$reg = $r->fetch(PDO::FETCH_ASSOC);//com isso eu pego a saída da consulta, e jogo em $reg
+	$hash = $reg['senha'];//só para facilitar eu pego o hash que está no banco, ou seja, a senha que está no banco e coloco em $hash, só p ficar mais facil de trabalhar
+
+	// comparar a senha passada pelo usuario com hash armazenado no db
+
+	if ( password_verify( $senha , $hash ) ){//password_verify() compara um hash com um dado para verificar se está correto ou bate, como na verificação de senha
 
 		$_SESSION['login'] = $login;
 
