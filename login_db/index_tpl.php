@@ -21,18 +21,29 @@
           <div class="card-body">
             <h5 class="card-title text-center">Login</h5>
             <div class="text-danger"><?php if (isset($msg)) echo $msg ?></div><br>
+            
+            <!--Formulário de login-->
             <form class="form-signin" method="post">
+              
+              <!--Campo de login-->
               <div class="form-label-group">
                 <label for="login">Login:</label>
                 <input type="text" id="login" name="login" class="form-control" placeholder="example@gmail.com" required autofocus>
               </div>
 
+              <!--Campo de senha-->
               <div class="form-label-group">
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" class="form-control" placeholder="password" required>
               </div>
               <hr class="my-4">
+
+              <!--Botão de Entrar-->
               <input type="submit" class="btn btn-lg btn-outline-primary btn-block text-uppercase" name="entrar" value="Entrar">
+
+              <!--Botão de cadastro--><br>
+              <a href="usuario/cadastro.php"><input type="button" class="btn btn-lg btn-outline-primary btn-block text-uppercase" name="cadastrar-se" value="Cadastrar-se"></a>
+            
             </form>
           </div>
         </div>
@@ -40,22 +51,4 @@
     </div>
   </div>
 </body>
-<!-- <body class="text-center">
-<main class="container-fluid mr-md-2 p-5 bg-dark">
-	<form method="post"> quando eu não coloco o action ele vai automaticamente para o index
-	
-	<br><br>	
-	<label for="login" class="text-white">Login:</label>
-	<input type="text" id="login" name="login"><br>
-		
-	<label for="senha" class="text-white">Senha:</label>
-	<input type="password" id="senha" name="senha">
-	<br><br>
-		
-	<input class="btn btn-outline-primary" type="submit" name="entrar" value="Entrar">
-		
-	</form>
-</main>
-
-</body> -->
 </html>
