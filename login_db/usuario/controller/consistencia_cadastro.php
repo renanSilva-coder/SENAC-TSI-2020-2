@@ -2,7 +2,7 @@
 
 $nome= $_POST['nome'] ?? null;
 $email= $_POST['email'] ?? null;
-$senha= $_POST['senha'] ?? null;
+$senha= $_POST['senha'] ?? null;//se vier o dado ou nulo (vazio)
 $conf_senha= $_POST['conf_senha'] ?? null;
 
 $senha = trim($senha);//trim() tira os espaços que estão antes e depois da senha;
