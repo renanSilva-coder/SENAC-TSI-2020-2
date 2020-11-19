@@ -21,13 +21,14 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)){//se filter retornar false na val
 	$erros[] = 'E-mail inválido!';
 
 //se o email não for inválido verifico se ja existe
-}elseif ( ja_existe_email($email) ){
+//também faz o desvio do momento do cadastro e da edição com && !isset($_POST['gravar'])
+}elseif ( ja_existe_email($email) && !isset($_POST['gravar']) ){
 	$erros[] = 'E-mail já cadastrado!';	
 }
 
 //verifica se a senha tem menos de oito caracteres
 if( strlen($senha) < 8 ){
-	$erros[] = 'A senha tem menos que 2 caracteres!';
+	$erros[] = 'A senha tem menos que 8 caracteres!';
 
 //verifica se a senha é diferente de conf_senha
 }elseif( $senha != $conf_senha){

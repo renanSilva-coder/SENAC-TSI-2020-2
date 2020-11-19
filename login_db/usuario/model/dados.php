@@ -4,16 +4,34 @@
 
 require_once '../db.php';
 
-function listarTudo(): array
+function listarTudo( int $id=null): array//colocar int $id=null diz que esse parametro é opcional
 {
 
 global $db;//posso acessar $db aqui dentro
 
-$r = $db->query("SELECT 
-				id, nome, email 
-			FROM 
-				usuario");
+if( is_null($id) ){
+
+	$str = '';
+
+	//SQL se $id não for passado como parametro:
+	//SELECT id, nome, email FROM usuario"
+
+}else{
+
+//caso o usu passe um param para listarTudo()
+//Na consulta SQL será adiocionada a cláusula WHERE
+//Ainda, p preg_replace() garante que não haverá SQL injection
+$str = 'WHERE id = ' .preg_replace('/\D/','',$id);
+
+	//SQL se $id não for passado como parametro:
+	//SELECT id, nome, email FROM usuario WHERE id = N"
+
+
+}
+
+$r = $db->query("SELECT id, nome, email	FROM usuario $str");
 $reg = $r->fetchAll();
+
 return is_array($reg) ? $reg : [];//verifica se $reg está como array. se não ele transforma em um
 }
 
@@ -57,9 +75,60 @@ function gravar_usuario(string $nome, string $email, string $senha): ?int//?int 
 
 	$stmt->execute();
 
-	return $db->lastInsertId();//retorna a saída desse método que deve ser o id que foi gerado nesse insert ou no ultimo insert do DB
+	return (int) $db->lastInsertId();//retorna a saída desse método que deve ser o id que foi gerado nesse insert ou no ultimo insert do DB
 
 }
+
+
+function apagar_usuario( int $id ): bool
+{
+	if(is_numeric($id)){
+		
+		global $db;
+
+		if ($db->exec("DELETE FROM usuario where id=$id") > 0){
+			return true;
+		}else {
+			return false;
+		}
+
+
+	}else{
+
+		return false;
+	}
+
+}
+
+
+function editar_usuario(int $id, string $nome, string $email, string $senha): bool//?int pode voltar um inteiro um false ou null, ou seja, ñ vai ser necessariamente um inteiro,peço integer mas pode vir null ou false.
+{
+
+	global $db;
+
+	$senha = password_hash($senha, PASSWORD_DEFAULT);
+
+	$stmt =$db->prepare('	UPDATE usuario SET
+	nome = :nm, email = :email, senha = :senha 
+							WHERE id = :id');
+
+	$stmt->bindParam(':id',$id);
+	$stmt->bindParam(':nm',$nome);
+	$stmt->bindParam(':email',$email);
+	$stmt->bindParam(':senha',$senha);
+
+	return $stmt->execute();;
+
+}
+
+
+
+
+
+
+
+
+
 
 
 

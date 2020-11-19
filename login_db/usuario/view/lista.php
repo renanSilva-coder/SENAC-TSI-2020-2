@@ -15,13 +15,22 @@ include '../index_menu_tpl.php';
 <body>
 <div class="text-center">
     <div class="container">    
-        <p>Abaixo está a lista de registros</p>        
+        <p>Abaixo está a lista de registros</p>
+        <div class="text-danger">
+        <?php 
+        if(isset($erro)){
+            echo "$erro<br><br>";
+        }
+        ?> 
+        </div>       
     <table class="table">
         <thead>
         <tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Whatsapp</th>
+            <th>Apagar</th>
+            <th>Editar</th>
         </tr>
         </thead>
 <?php foreach ($lista as $usuario) {
@@ -31,6 +40,8 @@ include '../index_menu_tpl.php';
                     <td>{$usuario['id']}</td>
                     <td>{$usuario['nome']}</td>
                     <td>{$usuario['email']}</td>
+                    <td><a href='?apagar={$usuario['id']}'>apagar</a></td>
+                    <td><a href='?editar={$usuario['id']}'>editar</a></td>
                 </tr>
           </tbody>";
 
