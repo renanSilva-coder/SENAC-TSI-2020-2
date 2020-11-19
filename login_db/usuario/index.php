@@ -18,6 +18,7 @@ if( isset( $_GET['apagar'] )){
 
 
 if( isset($_POST['gravar'])){
+	
 	require 'controller/consistencia_cadastro.php';
 
 	

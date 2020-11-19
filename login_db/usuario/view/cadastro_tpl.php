@@ -13,9 +13,9 @@
 </head>
 <body class="container p-sm-2 text-center">
   
-  <h1 class="container pt-sm-4">CRIE SUA CONTA :-)</h1>
+  <h1 class="container pt-sm-4">CADASTRE SUA CONTA :-)</h1>
 
-  <form method="post" action="cadastro.php">
+  <form method="post" action="cadastro.php" enctype="multipart/form-data"><!--enctype="multipart/form-data" diz ao navegador que pode vir arquivo de qualquer tipo  COM ARQUIVO NÃO FUNCIONA SE FOR GET, TEM QUE SER O METHOD POST -->
   <br>
   <div class="text-danger">
     <?php 
@@ -43,6 +43,8 @@
   <div class="form-group col-md-6">
     <label for="conf_senha">Confirme a senha</label>
     <input type="password" class="form-control" id="conf_senha" placeholder="Confirme sua senha" name="conf_senha" required>
+    <label for="foto">Foto</label>
+    <input type="file" class="form-control" id="foto" name="foto" required>
   </div>
   </div>
     <input type='submit' class='btn btn-outline-dark' name='cadastrar' value='Cadastrar'>
