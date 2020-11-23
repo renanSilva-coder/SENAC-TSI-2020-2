@@ -1,5 +1,8 @@
 <?php
 
+
+chdir( __DIR__ );
+
 $nome= $_POST['nome'] ?? null;
 $email= $_POST['email'] ?? null;
 $senha= $_POST['senha'] ?? null;//se vier o dado ou nulo (vazio)
@@ -16,7 +19,6 @@ if( strlen($nome) < 2 ){
 }
 
 //Verifica se o e-mail é válido
-
 if(!filter_var($email, FILTER_VALIDATE_EMAIL)){//se filter retornar false na validação{
 	$erros[] = 'E-mail inválido!';
 
