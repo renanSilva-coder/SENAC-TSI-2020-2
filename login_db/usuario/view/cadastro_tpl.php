@@ -49,7 +49,10 @@
     <input type="file" class="form-control" id="foto" name="foto">
   </div>
   </div>
-    <input type='submit' class='btn btn-outline-dark' name='cadastrar' value='cadastrar'>
+    <input type='submit' class='btn btn-outline-dark' name='cadastrar' value='Cadastrar'>
+    <a class="text-dark" href="/Github/SENAC-TSI-PHP-2020-2/login_db/">
+    <input type='button' class='btn btn-outline-dark' name='fazerLogin' value='Fazer Login'>
+    </a>
 </form>
   
 </body>
