@@ -34,9 +34,6 @@ if( isset($_POST['gravar'])){
 		}
 	}
 
-
-
-
 	require '../header_tpl.php';
 	require '../index_menu_tpl.php';
 	require 'view/editar.php';
