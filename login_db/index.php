@@ -1,5 +1,4 @@
 <?php
-
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -11,9 +10,13 @@ require_once 'db.php';
 //Exemplo de como fazer o salt na senha, uma criptografia
 // $pass = password_hash('123', PASSWORD_DEFAULT);
 // $pass = password_hash('123456', PASSWORD_DEFAULT);
-
+require_once 'usuario/model/dados.php';
 
 if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
+
+	$foto_vetor = get_imagem_usuario($_SESSION['id']);
+
+	$foto = $foto_vetor[0]['foto'];
 
 		include 'header_tpl.php';
 		include 'index_menu_tpl.php';
@@ -25,7 +28,7 @@ if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
 	$senha = $_POST['senha'];
 
 	//Verificar se existe o usuario e pegar o hash de senha
-	$r = $db->query("SELECT senha FROM usuario WHERE email = '$login'");
+	$r = $db->query("SELECT senha, id FROM usuario WHERE email = '$login'");
 	$reg = $r->fetch(PDO::FETCH_ASSOC);
 	$hash = $reg['senha'];
 
@@ -39,6 +42,7 @@ if (isset($_SESSION['login'])) { //Caso o usuario ja esteja logado no sistema
 	if ( password_verify($senha, $hash) ){//password_verify() compara um hash com um dado para verificar se está correto ou bate, como na verificação de senha
 
 		$_SESSION['login'] = $login;
+		$_SESSION['id'] = $reg['id'];
 
 		include 'header_tpl.php';
 		include 'index_menu_tpl.php';

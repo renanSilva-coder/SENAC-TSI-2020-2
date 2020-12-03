@@ -22,8 +22,6 @@ if ( isset($_POST['gravar']) ) {
 
 	require 'controller/consist_cadastro.php';
 
-
-
 	if ( count($erros) == 0 ) {
 
 		if ( !editar_usuario( $_POST['id'], $_POST['nome'], $_POST['email'], $_POST['senha']) ) {

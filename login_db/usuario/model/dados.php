@@ -25,8 +25,6 @@ $str = 'WHERE id = ' .preg_replace('/\D/','',$id);
 
 	//SQL se $id não for passado como parametro:
 	//SELECT id, nome, email FROM usuario WHERE id = N"
-
-
 }
 
 $r = $db->query("SELECT id, nome, email	FROM usuario $str ORDER BY id");
@@ -56,31 +54,6 @@ function ja_existe_email(string $email): bool//cria function com paramentro de u
 	return is_numeric($registro['id']) ? true : false; //verifica se id é numérico, ou seja, se tem id, se tiver é true senão é false. verificando em algo que eu sei que é numerico para ver se existe apenas.
 	// ? é igual ao {} do if comum e : é o else{}
 
-}
-
-function vincula_imagem_ao_usuario( int $id, string $nome_imagem ): bool
-{
-	global $db;
-
-	$stmt = $db->prepare('UPDATE usuario SET foto = :foto WHERE id = :id');
-
-	$stmt->bindParam(':foto', $nome_imagem);					
-	$stmt->bindParam(':id', $id);
-
-	return $stmt->execute();	
-}
-
-function get_imagem_usuario( int $id ): array
-{
-	global $db;
-
-	$stmt = $db->prepare('SELECT foto FROM usuario WHERE id = :id');
-
-	$stmt->bindParam(':id', $id);
-
-	$stmt->execute();	
-
-	return $stmt->fetchAll();
 }
 
 function gravar_usuario(string $nome, string $email, string $senha): ?int//?int pode voltar um inteiro um false ou null, ou seja, ñ vai ser necessariamente um inteiro,peço integer mas pode vir null ou false.
@@ -148,6 +121,31 @@ function editar_usuario(int $id, string $nome, string $email, string $senha): bo
 }
 
 
+function vincula_imagem_ao_usuario( 
+	int $id, string $nome_imagem ): bool
+{
+	global $db;
+
+	$stmt = $db->prepare('UPDATE usuario SET foto = :foto WHERE id = :id');
+
+	$stmt->bindParam(':foto', $nome_imagem);					
+	$stmt->bindParam(':id', $id);
+
+	return $stmt->execute();	
+}
+
+function get_imagem_usuario( int $id ): array
+{
+	global $db;
+
+	$stmt = $db->prepare('SELECT foto FROM usuario WHERE id = :id');
+
+	$stmt->bindParam(':id', $id);
+
+	$stmt->execute();	
+
+	return $stmt->fetchAll();
+}
 
 
 

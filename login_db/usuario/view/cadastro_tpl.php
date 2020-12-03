@@ -29,16 +29,16 @@
   <br>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputNome">Nome Completo</label>
-      <input type="text" class="form-control" id="inputNome" placeholder="Seu Nome..." name="nome" required>
+      <label for="nome">Nome Completo</label>
+      <input type="text" class="form-control" id="nome" placeholder="Seu Nome..." name="nome" required>
     </div>
   <div class="form-group col-md-6">
-    <label for="inputEmail">Email</label>
-    <input type="email" class="form-control" id="inputEmail" placeholder="Email" name="email" required>
+    <label for="email">Email</label>
+    <input type="email" class="form-control" id="email" placeholder="Email" name="email" required>
   </div>
   <div class="form-group col-md-6">
-    <label for="inputSenha">Senha</label>
-    <input type="password" class="form-control" id="inputSenha" placeholder="Senha" name="senha" required>
+    <label for="senha">Senha</label>
+    <input type="password" class="form-control" id="senha" placeholder="Senha" name="senha" required>
   </div>
   <div class="form-group col-md-6">
     <label for="conf_senha">Confirme a senha</label>
@@ -46,12 +46,12 @@
   </div>  
   <div>
     <label for="foto">Foto</label>
-    <input type="file" class="form-control" id="foto" name="foto">
+    <input type="file" class="form-control" id="foto" name="foto" required>
   </div>
   </div>
     <input type='submit' class='btn btn-outline-dark' name='cadastrar' value='Cadastrar'>
     <a class="text-dark" href="/Github/SENAC-TSI-PHP-2020-2/login_db/">
-    <input type='button' class='btn btn-outline-dark' name='fazerLogin' value='Fazer Login'>
+    <input type='button' class='btn btn-outline-primary' name='fazerLogin' value='Fazer Login'>
     </a>
 </form>
   

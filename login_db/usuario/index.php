@@ -34,10 +34,10 @@ if( isset($_POST['gravar'])){
 		}
 	}
 
-	require '../header_tpl.php';
-	require '../index_menu_tpl.php';
-	require 'view/editar.php';
-	require '../footer_tpl.php';
+	include '../../header_tpl.php';
+	include '../../index_menu_tpl.php';
+	include 'view/editar.php';
+	include '../../footer_tpl.php';
 
 	exit();
 
@@ -50,10 +50,10 @@ if( isset( $_GET['editar'] )){
 	$nome = $usuario[0]['nome'] ?? '';
 	$email = $usuario[0]['email'] ?? '';
 
-	require '../header_tpl.php';
-	require '../index_menu_tpl.php';
-	require 'view/editar.php';
-	require '../footer_tpl.php';
+	include '../header_tpl.php';
+	include '../index_menu_tpl.php';
+	include 'view/editar.php';
+	include '../footer_tpl.php';
 
 	exit();//para de rodar o código
 }

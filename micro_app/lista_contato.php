@@ -5,7 +5,7 @@ require_once 'connect.php';
 //Consulta para listar meus contatos:
 $tabela = array();
 
-$lista_sql = 'SELECT id, nome, whatsapp FROM  contatos;';
+$lista_sql = "SELECT id, nome, whatsapp FROM  contatos;";
 
 foreach($objBanco->query( $lista_sql ) as $registro){
     
